@@ -1,0 +1,115 @@
+:root {
+    --text-color: #DBE4EF;
+    --card-front-color: #144480;
+    --card-back-color: #00F4BF;
+}
+
+body {
+    background: url('img/bg-desktop.webp');
+    font-family: Bai Jamjuree;
+}
+
+#container {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.card {
+    margin: 1rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+}
+
+.card__content {
+    background-color: var(--card-front-color);
+    text-align: center;
+    /* background-color: aquamarine; */
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+}
+
+.card__content h3 {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+
+.card__content p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 1.4vw;
+}
+
+.card__content__question p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.card__content__answer p {
+    color: var(--card-back-color);
+    font-weight: 700;
+}
+
+.card.active .card__content {
+    transform: rotateY(180deg);
+}
+
+.card__content__question,
+.card__content__answer {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card__content__answer {
+    transform: rotateY(180deg);
+    background-color: rgba(0, 244, 191, 0.2);
+    border: 4px solid var(--card-back-color);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 560px) {
+    body {
+        background: url('img/bg-mobile.webp');
+    }
+
+    .card {
+        flex: 1 0 calc(100% - 1rem);
+    }
+
+    .card__content h3 {
+        font-size: 3vw;
+    }
+
+    .card__content p {
+        font-size: 3.8vw;
+    }
+}
